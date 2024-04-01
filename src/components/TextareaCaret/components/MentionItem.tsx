@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { NINE_NUM } from '../constant';
 import { StyledItem } from '../styled';
-import { TTreeDataItem } from '../mock';
+import { TTreeDataItem } from '../type';
 
 type TMentionItemProps = {
   selectId?: string;

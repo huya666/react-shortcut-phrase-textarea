@@ -6,7 +6,6 @@ import {
 
 import { cloneDeep } from 'lodash';
 import { Virtuoso, VirtuosoHandle } from 'react-virtuoso';  
-import { TTreeDataItem, treeData } from './mock';
 import useTextareaCaretPosition from './useTextareaCaretPosition';
 
 import { StyledWrapper } from './styled';
@@ -27,16 +26,17 @@ import {
   NINE_NUM,
 } from './constant';
 import { TextAreaRef } from 'antd/es/input/TextArea';
+import { TTreeDataItem } from './type';
 
 type TSelectMentionProps = {
   triggerSymbol?: string;
   value?: string;
+  treeData?: TTreeDataItem[];
   onChange?: (value?: string) =>void;
 }
 
-
 export default function SelectMention(props: TSelectMentionProps) {
-  const { triggerSymbol = '/', onChange, value } = props;
+  const { triggerSymbol = '/', onChange, value, treeData } = props;
 
   const textAreaRef = useRef<TextAreaRef>();
   const newTextArea = textAreaRef.current?.resizableTextArea?.textArea;
@@ -98,7 +98,7 @@ export default function SelectMention(props: TSelectMentionProps) {
 
   const filterMentionOptions = useCallback(
     ({ tagetText = '', replaceIndex }: { tagetText?: string; replaceIndex?: number[] }) => {
-      let newData = cloneDeep(treeData);
+      let newData = cloneDeep(treeData) || [];
       newData = newData
         ?.filter((t) => t?.code?.includes(tagetText) || t?.content?.includes(tagetText))
         ?.map((t, index) => ({ ...t, index: index > NINE_NUM ? undefined : index }));
@@ -122,7 +122,7 @@ export default function SelectMention(props: TSelectMentionProps) {
       setMentionOptions(newData);
       setReplacePosition(replaceIndex || []);
     },
-    [onSelectMentionItem, mentionOptions],
+    [treeData, mentionOptions, onSelectMentionItem],
   );
 
   /**

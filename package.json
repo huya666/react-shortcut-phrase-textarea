@@ -1,6 +1,6 @@
 {
   "name": "react-shortcut-phrase-textarea",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,7 +14,7 @@
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-shortcut-phrase-textarea": "^0.0.1",
+    "react-shortcut-phrase-textarea": "^0.0.3",
     "react-virtuoso": "^4.7.2",
     "styled-components": "^6.1.8"
   },

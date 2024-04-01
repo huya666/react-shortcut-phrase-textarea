@@ -1,12 +1,4 @@
-export type TTreeDataItem = {
-  code?: string;
-  content?: string;
-  groupId: string;
-  id: string;
-  groupName?: string;
-}
-
-export const treeData: TTreeDataItem[] = [
+export const treeData = [
   {
     code: 'xxx',
     content: '好的',
