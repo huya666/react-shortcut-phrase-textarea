@@ -1,11 +1,5 @@
 # React + TS + Vite
 
-### Installing
-
-```
-npm install react-shortcut-phrase-textarea
-```
-
 ### 组件功能
 
 用于选择快捷短语的文本输入框
